@@ -105,7 +105,7 @@ const faqItems = [
   },
   {
     question: "How long does shipping take in Malaysia?",
-    answer: "West Malaysia: RM 10 flat rate, arrives in 2-3 business days. East Malaysia: RM 20 flat rate, arrives in 4-6 business days. FREE shipping for orders above RM 500 (West Malaysia only). All shipments include tracking numbers sent via WhatsApp/email. We process orders within 1-2 business days after payment confirmation. For urgent orders, contact us on WhatsApp (+60 16 773 6549) and we'll do our best to expedite."
+    answer: "West Malaysia: RM 10 flat rate, arrives in 2-3 business days. East Malaysia: RM 20 flat rate, arrives in 4-6 business days. FREE shipping for orders above RM 500 (West Malaysia only). All shipments include tracking numbers sent via WhatsApp/email. We process orders within 1-2 business days after payment confirmation. For urgent orders, contact us on WhatsApp (+60 11 6673 6549) and we'll do our best to expedite."
   },
   {
     question: "What payment methods do you accept?",

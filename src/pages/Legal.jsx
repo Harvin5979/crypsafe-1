@@ -48,7 +48,7 @@ const legalSections = [
             "Request correction of inaccurate data",
             "Request deletion of your data (subject to legal requirements)",
             "Opt-out of marketing communications",
-            "Contact us at +60 16 773 6549 for any privacy concerns"
+            "Contact us at +60 11 6673 6549 for any privacy concerns"
           ]
         }
       ]
@@ -124,7 +124,7 @@ const legalSections = [
             "Products must be unopened and in original packaging",
             "Used or opened products cannot be returned due to security reasons",
             "Shipping costs are non-refundable unless product is defective",
-            "Contact us at +60 16 773 6549 to initiate a return"
+            "Contact us at +60 11 6673 6549 to initiate a return"
           ]
         },
         {
@@ -385,7 +385,7 @@ export default function Legal() {
             <a href="https://wa.me/601166736549" target="_blank" rel="noopener noreferrer">
               <button className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-8 py-3 rounded-lg transition-all inline-flex items-center gap-2">
                 <span>💬</span>
-                WhatsApp: +60 16 773 6549
+                WhatsApp: +60 11 6673 6549
               </button>
             </a>
             <a href="mailto:crypsafe.my@gmail.com">

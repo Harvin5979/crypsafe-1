@@ -24,7 +24,48 @@ const navigationItems = [
   { title: "Contact", url: createPageUrl("Contact"), icon: MessageCircle },
 ];
 
-export default function Layout({ children, currentPageName }) {
+const SITE_URL = "https://www.crypsafe.com.my";
+const BASE_TITLE = "CrypSafe Malaysia";
+
+// Per-page SEO; the home page (title: null) keeps the full brand title
+const PAGE_META = {
+  "/": { title: null, description: "Official Tangem reseller in Malaysia. Secure your crypto with cold wallets, expert consultation, and local support. Shop Tangem, OneKey & Keystone hardware wallets." },
+  "/home": { title: null, description: "Official Tangem reseller in Malaysia. Secure your crypto with cold wallets, expert consultation, and local support. Shop Tangem, OneKey & Keystone hardware wallets." },
+  "/shop": { title: "Shop Tangem Wallets", description: "Buy authentic Tangem cold wallets in Malaysia. Official reseller with warranty, local support, and fast shipping. Secure your Bitcoin, Ethereum & crypto." },
+  "/onekey": { title: "Shop OneKey Wallets", description: "Authorized OneKey reseller in Malaysia. Buy genuine OneKey hardware wallets with local support and free shipping across Malaysia." },
+  "/keystone": { title: "Keystone Steel Seed Backup", description: "Official Keystone reseller in Malaysia. Protect your seed phrase with a fire, water and corrosion resistant steel backup that works with any crypto wallet." },
+  "/compare": { title: "Compare Hardware Wallets", description: "Compare Tangem, OneKey and Keystone hardware wallets side by side to find the right cold wallet for securing your crypto." },
+  "/education": { title: "Crypto Security Education", description: "Learn about cold wallets, blockchain technology, seed phrases, and crypto security best practices. Complete guide to protecting your digital assets." },
+  "/safety": { title: "Anti-Phishing & Safety Notice", description: "Protect yourself from scams and phishing attempts. Learn what CrypSafe will never ask you to do, and never share your seed phrase with anyone." },
+  "/payment": { title: "Secure Payment Options", description: "Multiple secure payment methods: Stripe (FPX/Card), Coinbase Commerce (Crypto), Shopee. Safe and trusted payment processing." },
+  "/about": { title: "About Us", description: "CrypSafe, a brand of SANDRIAR ENTERPRISE, is an authorized reseller of Tangem, OneKey and Keystone, supporting Malaysian crypto users with self-custody education." },
+  "/contact": { title: "Contact Us", description: "Contact CrypSafe Malaysia on WhatsApp at +60 11-6673 6549 for orders, wallet recommendations and setup help." },
+  "/legal": { title: "Legal Information", description: "CrypSafe Malaysia terms, privacy policy, warranty and refund information." },
+  "/walletquiz": { title: "Find Your Perfect Wallet", description: "Answer a few quick questions to find the hardware wallet that fits how you hold and use crypto." },
+  "/physicalgoldsilver": { title: "Physical Gold & Silver", description: "Learn about diversifying your wealth with physical gold and silver alongside crypto for balanced, resilient protection." },
+  "/booking": { title: "Book Crypto Consultation", description: "Expert guidance to safely transfer crypto from exchanges to your cold wallet. 1-on-1 consultation with local Malaysian crypto experts." },
+  "/checkout": { title: "Checkout", description: "Complete your CrypSafe order." },
+  "/myorders": { title: "My Orders", description: "View your CrypSafe orders." },
+  "/admin": { title: "Admin", description: "CrypSafe admin." },
+  "/adminorders": { title: "Admin Orders", description: "CrypSafe admin." },
+  "/adminshipping": { title: "Admin Shipping", description: "CrypSafe admin." },
+  "/admininventory": { title: "Admin Inventory", description: "CrypSafe admin." },
+};
+
+// Private or transactional pages that should stay out of search results
+const NOINDEX_PATHS = ["/checkout", "/myorders", "/admin", "/adminorders", "/adminshipping", "/admininventory"];
+
+function setMeta(attr, key, content) {
+  let el = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.content = content;
+}
+
+export default function Layout({ children }) {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [user, setUser] = React.useState(null);
@@ -60,71 +101,29 @@ export default function Layout({ children, currentPageName }) {
 
   // Update page title and meta tags
   React.useEffect(() => {
-    const getPageMeta = () => {
-      const baseTitle = "CrypSafe Malaysia";
-      
-      if (currentPageName === "Shop") {
-        return {
-          title: `Shop Tangem Wallets - ${baseTitle}`,
-          description: "Buy authentic Tangem cold wallets in Malaysia. Official reseller with warranty, local support, and fast shipping. Secure your Bitcoin, Ethereum & crypto."
-        };
-      }
-      
-      if (currentPageName === "Booking") {
-        return {
-          title: `Book Crypto Consultation - ${baseTitle}`,
-          description: "Expert guidance to safely transfer crypto from exchanges to your cold wallet. 1-on-1 consultation with local Malaysian crypto experts."
-        };
-      }
+    const path = location.pathname.replace(/\/+$/, '').toLowerCase() || '/';
+    const meta = PAGE_META[path] || PAGE_META['/'];
+    const title = meta.title ? `${meta.title} | ${BASE_TITLE}` : `${BASE_TITLE} - Official Tangem Reseller | Secure Crypto Cold Wallets`;
+    const noindex = NOINDEX_PATHS.includes(path) || !(path in PAGE_META);
+    const canonical = SITE_URL + (path === '/' ? '/' : path);
 
-      if (currentPageName === "Payment") {
-        return {
-          title: `Secure Payment Options - ${baseTitle}`,
-          description: "Multiple secure payment methods: Stripe (FPX/Card), Coinbase Commerce (Crypto), Shopee. Safe and trusted payment processing."
-        };
-      }
+    document.title = title;
+    setMeta('name', 'description', meta.description);
+    setMeta('name', 'robots', noindex ? 'noindex, nofollow' : 'index, follow');
+    setMeta('property', 'og:title', title);
+    setMeta('property', 'og:description', meta.description);
+    setMeta('property', 'og:url', canonical);
+    setMeta('name', 'twitter:title', title);
+    setMeta('name', 'twitter:description', meta.description);
 
-      if (currentPageName === "Education") {
-        return {
-          title: `Crypto Security Education - ${baseTitle}`,
-          description: "Learn about cold wallets, blockchain technology, seed phrases, and crypto security best practices. Complete guide to protecting your digital assets."
-        };
-      }
-
-      return {
-        title: `${baseTitle} - Official Tangem Reseller | Secure Crypto Cold Wallets`,
-        description: "Official Tangem reseller in Malaysia. Secure your crypto with cold wallets, expert consultation, and local support. Shop Tangem, OneKey & Keystone hardware wallets."
-      };
-    };
-
-    const pageMeta = getPageMeta();
-    document.title = pageMeta.title;
-    
-    let metaDescription = document.querySelector('meta[name="description"]');
-    if (!metaDescription) {
-      metaDescription = document.createElement('meta');
-      metaDescription.name = 'description';
-      document.head.appendChild(metaDescription);
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.rel = 'canonical';
+      document.head.appendChild(canonicalLink);
     }
-    metaDescription.content = pageMeta.description;
-
-    let ogTitle = document.querySelector('meta[property="og:title"]');
-    if (!ogTitle) {
-      ogTitle = document.createElement('meta');
-      ogTitle.setAttribute('property', 'og:title');
-      document.head.appendChild(ogTitle);
-    }
-    ogTitle.content = pageMeta.title;
-
-    let ogDescription = document.querySelector('meta[property="og:description"]');
-    if (!ogDescription) {
-      ogDescription = document.createElement('meta');
-      ogDescription.setAttribute('property', 'og:description');
-      document.head.appendChild(ogDescription);
-    }
-    ogDescription.content = pageMeta.description;
-
-  }, [currentPageName]);
+    canonicalLink.href = canonical;
+  }, [location.pathname]);
 
   const isAdmin = user?.role === 'admin';
 

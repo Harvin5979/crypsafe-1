@@ -690,7 +690,7 @@ export default function Education() {
             </a>
             <span className="hidden sm:inline text-[#bfeee0]">•</span>
             <a href="https://wa.me/601166736549" className="text-[#00ffc6] hover:text-[#00d9a8] transition-colors">
-              💬 +60 16 773 6549
+              💬 +60 11 6673 6549
             </a>
           </div>
         </div>

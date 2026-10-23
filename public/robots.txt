@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /adminorders
+Disallow: /adminshipping
+Disallow: /admininventory
+Disallow: /checkout
+Disallow: /myorders
+
+Sitemap: https://www.crypsafe.com.my/sitemap.xml
