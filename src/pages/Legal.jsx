@@ -382,7 +382,7 @@ export default function Legal() {
         </p>
         <div className="flex flex-col items-center gap-4">
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="https://wa.me/60167736549" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/601166736549" target="_blank" rel="noopener noreferrer">
               <button className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-8 py-3 rounded-lg transition-all inline-flex items-center gap-2">
                 <span>💬</span>
                 WhatsApp: +60 16 773 6549

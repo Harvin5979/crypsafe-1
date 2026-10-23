@@ -363,7 +363,7 @@ export default function WalletQuiz() {
                   <RotateCcw className="w-4 h-4 mr-2" />
                   Retake Quiz
                 </Button>
-                <a href="https://wa.me/60167736549" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/601166736549" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold">
                     💬 Get Expert Advice
                   </Button>

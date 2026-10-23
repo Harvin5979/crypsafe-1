@@ -346,7 +346,7 @@ export default function Ledger() {
           Contact us for personalized advice on which hardware wallet suits your needs best
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <a href="https://wa.me/60167736549" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/601166736549" target="_blank" rel="noopener noreferrer">
             <Button className="bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold px-8 py-6 text-lg">
               💬 Chat on WhatsApp
             </Button>

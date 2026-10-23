@@ -75,7 +75,7 @@ const securityFeatures = [
 
 export default function Payment() {
   const getWhatsAppLink = (provider) => {
-    const baseURL = "https://wa.me/60167736549?text=";
+    const baseURL = "https://wa.me/601166736549?text=";
     let message = "";
     
     if (provider === "shopee") {
@@ -346,7 +346,7 @@ export default function Payment() {
               Get Stripe Payment Link
             </Button>
           </a>
-          <a href="https://wa.me/60167736549" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/601166736549" target="_blank" rel="noopener noreferrer">
             <Button variant="outline" className="border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white px-8 py-6 text-lg font-bold">
               <MessageCircle className="w-5 h-5 mr-2" />
               Chat on WhatsApp
@@ -362,7 +362,7 @@ export default function Payment() {
               📧 crypsafe.my@gmail.com
             </a>
             <span className="hidden sm:inline text-[#bfeee0]">•</span>
-            <a href="https://wa.me/60167736549" className="text-[#00ffc6] hover:text-[#00d9a8] transition-colors">
+            <a href="https://wa.me/601166736549" className="text-[#00ffc6] hover:text-[#00d9a8] transition-colors">
               💬 +60 16 773 6549
             </a>
           </div>

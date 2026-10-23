@@ -689,7 +689,7 @@ export default function Education() {
               📧 crypsafe.my@gmail.com
             </a>
             <span className="hidden sm:inline text-[#bfeee0]">•</span>
-            <a href="https://wa.me/60167736549" className="text-[#00ffc6] hover:text-[#00d9a8] transition-colors">
+            <a href="https://wa.me/601166736549" className="text-[#00ffc6] hover:text-[#00d9a8] transition-colors">
               💬 +60 16 773 6549
             </a>
           </div>

@@ -176,7 +176,7 @@ export default function Layout({ children, currentPageName }) {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6">
+            <nav className="hidden xl:flex items-center gap-0.5 2xl:gap-1 text-sm whitespace-nowrap">
               {navigationItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = location.pathname === item.url;
@@ -184,13 +184,13 @@ export default function Layout({ children, currentPageName }) {
                   <Link
                     key={item.title}
                     to={item.url}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
-                      isActive 
-                        ? 'bg-[#00ffc6] text-[#071018] font-bold' 
+                    className={`flex items-center gap-1.5 px-2.5 2xl:px-3 py-2 rounded-lg transition-all ${
+                      isActive
+                        ? 'bg-[#00ffc6] text-[#071018] font-bold'
                         : 'text-[#bfeee0] hover:text-[#00ffc6] hover:bg-[#0b2221]'
                     }`}
                   >
-                    <Icon className="w-4 h-4" />
+                    <Icon className="hidden 2xl:block w-4 h-4" />
                     {item.title}
                   </Link>
                 );
@@ -237,7 +237,7 @@ export default function Layout({ children, currentPageName }) {
                   href="https://wa.me/601166736549"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#25D366] text-white font-bold hover:bg-[#20ba5a] transition-all"
+                  className="flex items-center gap-1.5 ml-1 px-3 py-2 rounded-lg bg-[#25D366] text-white font-bold hover:bg-[#20ba5a] transition-all"
                   >
                   <MessageCircle className="w-4 h-4" />
                   WhatsApp
@@ -246,7 +246,7 @@ export default function Layout({ children, currentPageName }) {
 
             {/* Mobile Menu */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild className="md:hidden">
+              <SheetTrigger asChild className="xl:hidden">
                 <Button variant="ghost" size="icon">
                   <Menu className="w-6 h-6 text-[#00ffc6]" />
                 </Button>

@@ -226,7 +226,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-gradient-to-r from-[#00ffc6] to-[#00d9a8] hover:from-[#00d9a8] hover:to-[#00ffc6] text-[#071018] font-bold px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all">
+              <Button className="bg-gradient-to-r from-[#00ffc6] to-[#00d9a8] hover:from-[#00d9a8] hover:to-[#00ffc6] text-[#071018] font-bold px-5 sm:px-8 py-6 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all">
                 <MessageCircle className="w-6 h-6 mr-2" />
                 Get AI Advice on WhatsApp
               </Button>
