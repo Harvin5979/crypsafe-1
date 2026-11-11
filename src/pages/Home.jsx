@@ -14,6 +14,7 @@ import {
 
 import LiveCryptoPrices from "../components/home/LiveCryptoPrices";
 import WhyChooseTangem from "../components/tangem/WhyChooseTangem";
+import { Promo1111Banner, isPromo1111Active } from "../components/home/Promo1111";
 
 const features = [
   {
@@ -116,6 +117,8 @@ const faqItems = [
 export default function Home() {
   return (
     <div className="relative">
+      {isPromo1111Active() && <Promo1111Banner />}
+
       {/* Hero Section */}
       <section className="relative hero-gradient overflow-hidden">
         <div className="absolute inset-0 opacity-20">

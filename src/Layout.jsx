@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/sheet";
 
 import Logo from "./components/branding/Logo";
+import { Promo1111Bar, isPromo1111Active } from "./components/home/Promo1111";
 
 const navigationItems = [
   { title: "Home", url: createPageUrl("Home"), icon: Shield },
@@ -129,12 +130,16 @@ export default function Layout({ children }) {
 
   return (
     <div className="min-h-screen bg-[#071018] text-[#e6fff5]">
-      {/* Free Shipping Banner */}
-      <div className="bg-gradient-to-r from-[#00ffc6] to-[#00d9a8] py-2 px-4 text-center">
-        <p className="text-[#071018] text-sm md:text-base font-bold">
-          🎉 <span className="animate-pulse">FREE SHIPPING</span> on All Orders Across Malaysia
-        </p>
-      </div>
+      {/* 11.11 promo strip during the campaign, otherwise Free Shipping Banner */}
+      {isPromo1111Active() ? (
+        <Promo1111Bar />
+      ) : (
+        <div className="bg-gradient-to-r from-[#00ffc6] to-[#00d9a8] py-2 px-4 text-center">
+          <p className="text-[#071018] text-sm md:text-base font-bold">
+            🎉 <span className="animate-pulse">FREE SHIPPING</span> on All Orders Across Malaysia
+          </p>
+        </div>
+      )}
 
       <style>{`
         :root {
